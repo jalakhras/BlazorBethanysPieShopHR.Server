@@ -1,9 +1,7 @@
 ﻿using BethanysPieShopHR.Server.Services;
 using BethanysPieShopHRM.Shared;
 using Microsoft.AspNetCore.Components;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BethanysPieShopHR.Server.Pages
@@ -19,7 +17,7 @@ namespace BethanysPieShopHR.Server.Pages
         public IEmployeeDataService _employeeDataService { get; set; }
         protected async override Task OnInitializedAsync()
         {
-           
+
             Employee = await _employeeDataService.GetEmployeeDetails(int.Parse(EmployeeId));
 
         }

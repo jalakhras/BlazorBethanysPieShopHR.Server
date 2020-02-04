@@ -8,13 +8,19 @@
     @if (!Saved)
     {
     <EditForm Model="@Employee" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary></ValidationSummary>
         <div class="form-group row">
             <label for="lastName" class="col-sm-3">Last Name :</label>
             <InputText id="lastName" @bind-Value="@Employee.LastName" class="form-control col-sm-8" placeholder="Enter last Name "></InputText>
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => Employee.LastName)" />
+
         </div>
         <div class="form-group row">
             <label for="firstName" class="col-sm-3">First Name :</label>
             <InputText id="lastName" @bind-Value="@Employee.FirstName" class="form-control col-sm-8" placeholder="Enter first Name "></InputText>
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => Employee.FirstName)" />
+
         </div>
 
         <div class="form-group row">
@@ -25,6 +31,8 @@
         <div class="form-group row">
             <label for="email" class="col-sm-3">Email :</label>
             <InputText id="email" @bind-Value="@Employee.Email" class="form-control col-sm-8" placeholder="Email "></InputText>
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => Employee.Email)" />
+
         </div>
         <div class="form-group row">
             <label for="street" class="col-sm-3">Street :</label>

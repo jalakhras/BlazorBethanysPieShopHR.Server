@@ -1,7 +1,5 @@
 ﻿using BethanysPieShopHRM.Shared;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -13,7 +11,7 @@ namespace BethanysPieShopHR.Server.Services
         private readonly HttpClient _httpClient;
         public CountryDataService(HttpClient httpClient)
         {
-            _httpClient = httpClient; 
+            _httpClient = httpClient;
         }
 
         public async Task<IEnumerable<Country>> GetAllCountries()

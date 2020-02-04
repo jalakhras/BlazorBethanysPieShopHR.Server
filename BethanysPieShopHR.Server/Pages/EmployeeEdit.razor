@@ -5,7 +5,9 @@
 <h3>EmployeeEdit</h3>
 <section class="employee-edit">
     <h1 class="page-title">Deatails for @Employee.FirstName @Employee.LastName</h1>
-    <EditForm Model="@Employee">
+    @if (!Saved)
+    {
+    <EditForm Model="@Employee" OnValidSubmit="@HandleValidSubmit">
         <div class="form-group row">
             <label for="lastName" class="col-sm-3">Last Name :</label>
             <InputText id="lastName" @bind-Value="@Employee.LastName" class="form-control col-sm-8" placeholder="Enter last Name "></InputText>
@@ -110,13 +112,18 @@
 
         <button type="submit" class="btn btn-primary edit-btn">Save employee</button>
 
-        @*@if (Employee.EmployeeId > 0)
-        {
-            <a class="btn btn-danger" @onclick="@DeleteEmployee">
-                Delete
-            </a>
-        }*@
+        @if (Employee.EmployeeId > 0)
+            {
+                <a class="btn btn-danger" @onclick="@DeleteEmployee">Delete</a>
+            }
 
     </EditForm>
+    }
+    else
+    {
+    <div class="alert @StatusClass">@Message</div>
+    <a class="btn btn-outline-primary" @onclick="@NavigateToOverview">Back to overview</a>
+
+    }
 </section>
 
